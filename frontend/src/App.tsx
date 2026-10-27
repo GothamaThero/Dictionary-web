@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from 'react'
-import { BookOpen, Languages, Search, ArrowRight } from 'lucide-react'
+import { BookOpen, Search, ArrowRight } from 'lucide-react'
 import { type DictionaryPair, getDictionaryPairs } from './services/dictionaryService.mts'
 
 export default function App() {
@@ -48,7 +48,7 @@ export default function App() {
             </span>
             <span>
               <span className="block text-lg font-bold text-slate-900">
-                Trilingua Lexicon
+                EXONIT DICTIONARIES
               </span>
               <span className="text-xs text-slate-500">
                 A world of words
@@ -56,10 +56,10 @@ export default function App() {
             </span>
           </a>
 
-          <span className="hidden items-center gap-2 text-sm text-slate-600 sm:flex">
+          {/* <span className="hidden items-center gap-2 text-sm text-slate-600 sm:flex">
             <Languages size={18} />
             Multilingual Dictionary
-          </span>
+          </span> */}
         </nav>
       </header>
 
