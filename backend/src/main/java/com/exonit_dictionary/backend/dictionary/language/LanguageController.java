@@ -1,31 +1,22 @@
 package com.exonit_dictionary.backend.dictionary.language;
 
+import java.util.List;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
-import org.springframework.web.bind.annotation.GetMapping;
-
-
-@RestController 
-@RequestMapping ("/api/languages")
+@RestController
+@RequestMapping("/api/languages")
 public class LanguageController {
 
-    
-    private final LanguageRepository repository;
+    private final LanguageService service;
 
-    public LanguageController(LanguageRepository repository) {
-        this.repository = repository;
+    public LanguageController(LanguageService service) {
+        this.service = service;
     }
 
     @GetMapping
-    public List<LanguageResponse> getLanguages(){
-        return repository.findByEnabledTrueOrderByNameEnAsc()
-                .stream()
-                .map(LanguageResponse::from)
-                .toList();
+    public List<LanguageResponse> getLanguages() {
+        return service.getActiveLanguages();
     }
-    
-    
 }
